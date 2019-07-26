@@ -19,11 +19,11 @@ app.post('/',async (req,res)=>{
     });
 app.get('/',(req,res)=>{
      const user={
-         "url":"www.google.com",
+        //  "url":"www.google.com",
          "text":"hi there"
      };
      res.send(user)
  })
 
-app.listen(3001);
-console.log("server runing on 3001 port")
+app.listen(3003);
+console.log("server runing on 3003 port")
