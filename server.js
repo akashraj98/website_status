@@ -25,5 +25,5 @@ app.get('/',(req,res)=>{
      res.send(user)
  })
 
-app.listen(3003);
-console.log("server runing on 3003 port")
+app.listen(80);
+console.log("server runing on 80 port")
