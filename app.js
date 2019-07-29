@@ -4,8 +4,8 @@ const request = require('request')
 function downloadPage(req) {
     return new Promise((resolve, reject) => {
         request.get(req.body.url,{json:true,time:true,followRedirect:true}, (error, response, body,) => {
-            if (error){ reject(error)};
-            resolve(data(req,response))
+            if (error){ reject(iferror(error))}
+            else{resolve(data(req,response))}
         });
     });
 }
@@ -28,6 +28,15 @@ function data(req,response){
     return send_data;
 }
 
+function iferror(error){
+    const send_data={
+        "statusCode": 404,
+        "time":-1,
+        "Status":"NO RESPONSE RECIEVED" 
+    }
+    // console.log(error);
+    return send_data;
+}
 module.exports ={ downloadPage,data }
 
 

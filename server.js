@@ -10,11 +10,12 @@ app.post('/',async (req,res)=>{
     try {
         // await downloadPage(req)
         // try downloading an invalid url
-        var response =await luk.downloadPage(req)
+        var response = await luk.downloadPage(req)
         res.send(response)
     } catch (error) {
         console.error('ERROR:');
-        console.error(error);
+        // console.error(error);
+        res.send(error)
     }
     });
 app.get('/',(req,res)=>{
