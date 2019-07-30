@@ -14,15 +14,15 @@ function data(req,response){
     console.log(response.elapsedTime);
     time_ms=req.body.timeout*1000;
     // console.log(time_ms)
-    var Time = "";
+    var statusTxt = "";
     if (time_ms < response.elapsedTime){
-        Time= "SOMETHING IS WRONG"
+        statusTxt= "LATE RESPONSE"
     }
-    else{Time="ALL GOOD"}
+    else{statusTxt="ALL GOOD"}
     const send_data = {
         "statusCode": response.statusCode,
         "time":response.elapsedTime,
-        "Status":Time
+        "Status":statusTxt
     }
     // console.log(send_data);
     return send_data;
@@ -32,7 +32,7 @@ function iferror(error){
     const send_data={
         "statusCode": 404,
         "time":-1,
-        "Status":"NO RESPONSE RECIEVED" 
+        "Status":"NO RESPONSE" 
     }
     // console.log(error);
     return send_data;
